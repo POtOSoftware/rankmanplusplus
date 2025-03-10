@@ -35,41 +35,43 @@ offset_bottom = 608.0
 grow_horizontal = 2
 color = Color(0.0980392, 0.101961, 0.196078, 1)
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="LineEdit" type="LineEdit" parent="Box"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 64.0
-offset_top = 288.0
-offset_right = -64.0
-offset_bottom = 448.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 184.0
 grow_horizontal = 2
 placeholder_text = "type in ya item here"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 464.0
-offset_right = 1016.0
-offset_bottom = 584.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Box"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 200.0
+offset_bottom = 320.0
+grow_horizontal = 2
 theme_override_constants/separation = 58
 alignment = 1
+metadata/_edit_group_ = true
 
-[node name="AddToStart" type="Button" parent="HBoxContainer"]
+[node name="AddToStart" type="Button" parent="Box/HBoxContainer"]
 custom_minimum_size = Vector2(273, 0)
 layout_mode = 2
 text = "Add To Start"
 
-[node name="AddToMiddle" type="Button" parent="HBoxContainer"]
+[node name="AddToMiddle" type="Button" parent="Box/HBoxContainer"]
 custom_minimum_size = Vector2(290, 0)
 layout_mode = 2
 text = "Add To Middle"
 
-[node name="AddToEnd" type="Button" parent="HBoxContainer"]
+[node name="AddToEnd" type="Button" parent="Box/HBoxContainer"]
 custom_minimum_size = Vector2(273, 0)
 layout_mode = 2
 text = "Add To End"
 
-[connection signal="pressed" from="HBoxContainer/AddToStart" to="." method="_on_add_to_start_pressed"]
-[connection signal="pressed" from="HBoxContainer/AddToMiddle" to="." method="_on_add_to_middle_pressed"]
-[connection signal="pressed" from="HBoxContainer/AddToEnd" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="Box/HBoxContainer/AddToStart" to="." method="_on_add_to_start_pressed"]
+[connection signal="pressed" from="Box/HBoxContainer/AddToMiddle" to="." method="_on_add_to_middle_pressed"]
+[connection signal="pressed" from="Box/HBoxContainer/AddToEnd" to="." method="_on_add_button_pressed"]
