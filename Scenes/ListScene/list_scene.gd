@@ -9,12 +9,13 @@ var test_three: Array = ["uh yeah", "woo hoo", "filling out a stinky lil list", 
 func _ready() -> void:
 	AppManager.list_container = list_container
 	
+	AppManager.connect(AppManager.new_item_signal, self.refresh_display)
 	#refresh_display(test_list)
 
 func _exit_tree() -> void:
 	AppManager.list_container = null
 
-func refresh_display(_input_list: Array) -> void:
+func refresh_display(_input_list: Array = AppManager.main_list) -> void:
 	print("REFRESHING LIST WITH LIST " + str(_input_list))
 	get_tree().call_group("list_item", "queue_free")
 	
@@ -37,3 +38,5 @@ func _on_test_1_pressed() -> void:
 	AppManager.set_main_list(test_list)
 	refresh_display(test_list)
  
+func _on_add_button_pressed() -> void:
+	AppManager.create_list_item_input()
