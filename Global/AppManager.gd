@@ -26,6 +26,19 @@ func create_list_item_input():
 func set_main_list(_new_list: Array):
 	main_list = _new_list
 
+func add_to_start(_input_item: String):
+	main_list_backup = main_list
+	
+	main_list.insert(0, _input_item)
+	new_item_added.emit()
+
+func add_to_middle(_input_item: String):
+	main_list_backup = main_list
+	
+	var list_middle: int = main_list.size() / 2
+	main_list.insert(list_middle, _input_item)
+	new_item_added.emit()
+
 func add_to_end(_input_item: String):
 	main_list_backup = main_list
 	
