@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://barijsy044p1w"]
+[gd_scene load_steps=4 format=3 uid="uid://barijsy044p1w"]
 
 [ext_resource type="Theme" uid="uid://b288c5n3b1ipm" path="res://MainUITheme.tres" id="1_lmsqo"]
 [ext_resource type="Script" uid="uid://dqi87dju0jwj6" path="res://Scenes/FilePicker/file_picker.gd" id="2_muyws"]
+[ext_resource type="Texture2D" uid="uid://dw12y4s2nngg5" path="res://Textures/plus.png" id="3_hir2g"]
 
 [node name="FilePicker" type="Control"]
 layout_mode = 3
@@ -55,20 +56,22 @@ vertical_scroll_mode = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 
-[node name="NewButton" type="Button" parent="."]
+[node name="NewButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -184.0
-offset_top = -120.0
-offset_right = -24.0
-offset_bottom = -24.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = -40.0
+offset_bottom = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "NEW"
+texture_normal = ExtResource("3_hir2g")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="CreditsPopup" type="Control" parent="."]
 visible = false
