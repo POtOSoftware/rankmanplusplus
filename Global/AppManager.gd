@@ -45,3 +45,9 @@ func add_to_end(_input_item: String):
 	
 	main_list.append(_input_item)
 	new_item_added.emit()
+
+func remove_index_from_list(_item_to_remove: int):
+	main_list_backup = main_list
+	
+	main_list.remove_at(_item_to_remove)
+	new_item_added.emit()

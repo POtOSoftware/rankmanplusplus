@@ -11,7 +11,6 @@ offset_bottom = 150.0
 grow_horizontal = 2
 mouse_filter = 1
 script = ExtResource("1_rrwu2")
-metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -36,3 +35,12 @@ theme_override_font_sizes/font_size = 48
 text = "X. ITEM"
 vertical_alignment = 1
 text_overrun_behavior = 3
+
+[node name="DeleteButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1081.0
+offset_bottom = 151.0
+text = "DELETE"
+
+[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]
