@@ -16,9 +16,39 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
+
+[node name="Test1" type="Button" parent="."]
+layout_mode = 0
+offset_top = 2280.0
+offset_right = 320.0
+offset_bottom = 2401.0
+text = "Test List 1"
+
+[node name="Test2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 2280.0
+offset_right = 664.0
+offset_bottom = 2401.0
+text = "Test List 2
+"
+
+[node name="Test3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 2280.0
+offset_right = 1008.0
+offset_bottom = 2401.0
+text = "Test List 3
+"
+
+[connection signal="pressed" from="Test1" to="." method="_on_test_1_pressed"]
+[connection signal="pressed" from="Test2" to="." method="_on_test_2_pressed"]
+[connection signal="pressed" from="Test3" to="." method="_on_test_3_pressed"]
