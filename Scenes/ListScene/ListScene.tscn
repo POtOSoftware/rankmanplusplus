@@ -31,6 +31,7 @@ vertical_scroll_mode = 3
 [node name="VBoxContainer" type="Container" parent="ScrollContainer" node_paths=PackedStringArray("scroll_container")]
 process_mode = 1
 layout_mode = 2
+size_flags_vertical = 3
 script = ExtResource("3_yl3w1")
 is_vertical = true
 scroll_container = NodePath("..")
@@ -42,6 +43,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Test1" type="Button" parent="TestLists"]
+visible = false
 layout_mode = 0
 offset_top = 2280.0
 offset_right = 320.0
@@ -81,9 +83,25 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "ADD"
 
+[node name="CopyButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1056.0
+offset_top = -120.0
+offset_right = -896.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "COPY"
+
 [connection signal="reordered" from="ScrollContainer/VBoxContainer" to="." method="_on_v_box_container_reordered"]
 [connection signal="sort_children" from="ScrollContainer/VBoxContainer" to="ScrollContainer/VBoxContainer" method="_on_sort_children"]
 [connection signal="pressed" from="TestLists/Test1" to="." method="_on_test_1_pressed"]
 [connection signal="pressed" from="TestLists/Test2" to="." method="_on_test_2_pressed"]
 [connection signal="pressed" from="TestLists/Test3" to="." method="_on_test_3_pressed"]
 [connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="CopyButton" to="." method="_on_copy_button_pressed"]

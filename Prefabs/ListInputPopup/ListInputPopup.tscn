@@ -44,7 +44,7 @@ offset_top = 288.0
 offset_right = -64.0
 offset_bottom = 448.0
 grow_horizontal = 2
-placeholder_text = "input ya fuckin string here"
+placeholder_text = "type in ya item here"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0

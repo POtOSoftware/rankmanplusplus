@@ -4,7 +4,7 @@ extends Control
 
 var test_list: Array = ["item one", "item two", "item three", "item four"]
 var test_two: Array = ["Grace", "Eternal Life", "Last Goodbye", "Mojo Pin", "Forget Her", "So Real", "Lover", "Lilac Wine", "Hallelujah", "Dream Brother", "Corpus Christi Carol"]
-var test_three: Array = ["uh yeah", "woo hoo", "filling out a stinky lil list", "fuck you", "and fuck me", "and fuck yourself too", "shit head", "really long", "still more to go", "yep", "this is somehow boring", "not really", "AA", "AAA!", "nyaa~", "mrrp", "meoww~ :3", "mrrow", "the end!"]
+var test_three: Array = ["uh yeah", "woo hoo", "filling out a stinky lil list", "fuck you", "and fuck me", "and fuck yourself too", "shit head", "really long", "still more to go", "yep", "this is somehow boring", "not really", "AA", "AAA!", "nyaa~", "mrrp", "meoww~ :3", "mrrow", "gotta add more", "and even more", "cause apparently my shit dont work", "the end!"]
 
 func _ready() -> void:
 	AppManager.list_container = list_container
@@ -53,3 +53,16 @@ func _on_v_box_container_reordered(from: int, to: int) -> void:
 	
 	AppManager.set_main_list(_main_list_copy)
 	refresh_display()
+
+func _on_copy_button_pressed() -> void:
+	var _copy_string: String = ""
+	var index: int = 1
+	
+	for item in AppManager.main_list:
+		var _rank: String = str(index) + ". "
+		_copy_string += _rank + item + "\n"
+		
+		index += 1
+	
+	print(_copy_string)
+	DisplayServer.clipboard_set(_copy_string)
