@@ -9,6 +9,7 @@ var pre_ListItem: PackedScene = preload("res://Prefabs/ListItem/ListItem.tscn")
 var pre_FileItem: PackedScene = preload("res://Prefabs/FileItem/FileItem.tscn")
 var pre_ListInput: PackedScene = preload("res://Prefabs/ListInputPopup/ListInputPopup.tscn")
 var pre_StringInput: PackedScene = preload("res://Prefabs/StringInputPopup/StringInputPopup.tscn")
+var pre_YesNoInput: PackedScene = preload("res://Prefabs/YesNoPopup/YesNoPopup.tscn")
 
 var list_container: Node = null
 var file_list_container: Node = null
@@ -62,6 +63,18 @@ func create_file_item(_text: String) -> void:
 #endregion
 
 #region Input Popups
+func create_yes_no_input(_header_label: String = "PLACEHOLDER") -> bool:
+	var YesNoInstance = pre_YesNoInput.instantiate()
+	
+	get_tree().get_root().add_child(YesNoInstance)
+	YesNoInstance.initialize_header(_header_label)
+	
+	var result: bool = await YesNoInstance.answer
+	
+	get_tree().get_root().remove_child(YesNoInstance)
+	
+	return result
+
 func create_list_item_input() -> void:
 	var ListInputInstance = pre_ListInput.instantiate()
 	

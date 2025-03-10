@@ -38,6 +38,7 @@ scroll_container = NodePath("..")
 metadata/_custom_type_script = "uid://dcfmk7jj68fsr"
 
 [node name="TestLists" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
