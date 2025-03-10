@@ -74,7 +74,6 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="CreditsPopup" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,7 +98,7 @@ anchor_bottom = 1.0
 offset_left = 120.0
 offset_top = 352.0
 offset_right = -120.0
-offset_bottom = -1008.0
+offset_bottom = -904.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0980392, 0.101961, 0.196078, 1)
@@ -129,9 +128,13 @@ theme_override_font_sizes/normal_font_size = 40
 text = "POtO Software's RankMan++
 Created by Kyle Kailihiwa
 
-Ui icons created by riajulislam - Flaticon
+Ui icons created by SeyfDesigner - Flaticon
 
 Dots icons created by SeyfDesigner - Flaticon
+
+Plus sign icons created by SeyfDesigner - Flaticon
+
+Duplicate icons created by SeyfDesigner - Flaticon
 
 Close icons created by Nendra Wahyu  - Flaticon"
 horizontal_alignment = 1
