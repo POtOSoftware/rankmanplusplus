@@ -11,10 +11,11 @@ config_version=5
 [application]
 
 config/name="RankMan++"
+config/version="1.0"
 run/main_scene="uid://barijsy044p1w"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://clxao40ykpoil"
 
 [autoload]
 
