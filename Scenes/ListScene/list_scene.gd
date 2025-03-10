@@ -9,7 +9,7 @@ var test_three: Array = ["uh yeah", "woo hoo", "filling out a stinky lil list", 
 func _ready() -> void:
 	AppManager.list_container = list_container
 	
-	refresh_display(test_list)
+	#refresh_display(test_list)
 
 func _exit_tree() -> void:
 	AppManager.list_container = null
@@ -26,11 +26,14 @@ func refresh_display(_input_list: Array) -> void:
 	print("REFRESH COMPLETE")
 
 func _on_test_2_pressed() -> void:
+	AppManager.set_main_list(test_two)
 	refresh_display(test_two)
 
 func _on_test_3_pressed() -> void:
+	AppManager.set_main_list(test_three)
 	refresh_display(test_three)
 
 func _on_test_1_pressed() -> void:
+	AppManager.set_main_list(test_list)
 	refresh_display(test_list)
  
