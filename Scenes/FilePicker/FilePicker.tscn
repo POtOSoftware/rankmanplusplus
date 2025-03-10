@@ -13,13 +13,38 @@ grow_vertical = 2
 theme = ExtResource("1_lmsqo")
 script = ExtResource("2_muyws")
 
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 128.0
+offset_right = -632.0
+offset_bottom = 227.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "RankMan++"
+vertical_alignment = 1
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 128.0
+offset_right = -17.0
+offset_bottom = 227.0
+grow_horizontal = 0
+text = "Credits"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 104.0
+offset_top = 240.0
 offset_bottom = -288.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -45,4 +70,84 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "NEW"
 
+[node name="CreditsPopup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CreditsPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Box" type="ColorRect" parent="CreditsPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = 352.0
+offset_right = -120.0
+offset_bottom = -1008.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.101961, 0.196078, 1)
+
+[node name="CreditsTitle" type="Label" parent="CreditsPopup/Box"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_right = 144.0
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "CREDITS"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsPopup/Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 112.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "POtO Software's RankMan++
+Created by Kyle Kailihiwa
+
+Trash can icons created by Freepik - Flaticon
+
+Dots icons created by SeyfDesigner - Flaticon
+
+Close icons created by Smashicons - Flaticon"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="CreditsPopup/Box"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -348.0
+offset_top = -96.0
+offset_right = 347.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Okay, don't care"
+
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="CreditsPopup/Box/CloseButton" to="." method="_on_close_button_pressed"]

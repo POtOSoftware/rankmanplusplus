@@ -38,3 +38,4 @@ enabled=PackedStringArray("res://addons/ReorderableContainer/plugin.cfg")
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.0980392, 0.101961, 0.196078, 1)

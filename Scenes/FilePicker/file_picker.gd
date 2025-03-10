@@ -1,6 +1,7 @@
 extends Control
 
 @onready var list_container = $ScrollContainer/VBoxContainer
+@onready var credits_popup = $CreditsPopup
 
 func _ready() -> void:
 	AppManager.file_list_container = list_container
@@ -41,3 +42,9 @@ func _on_new_button_pressed() -> void:
 	AppManager.load_main_list_from_file(new_file_name)
 	
 	get_tree().change_scene_to_file("res://Scenes/ListScene/ListScene.tscn")
+
+func _on_credits_pressed() -> void:
+	credits_popup.visible = true
+
+func _on_close_button_pressed() -> void:
+	credits_popup.visible = false
