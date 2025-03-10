@@ -1,6 +1,6 @@
 extends Control
 
-@onready var item_label: Node = $FileButton
+@onready var item_label: Node = $Label
 
 func initialize_string(_text: String) -> void:
 	item_label.text = _text

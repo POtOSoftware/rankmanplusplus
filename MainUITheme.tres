@@ -9,6 +9,6 @@ bg_color = Color(0.219608, 0.219608, 0.333333, 1)
 [resource]
 Button/font_sizes/font_size = 40
 Button/styles/normal = SubResource("StyleBoxFlat_eiuqr")
-Label/font_sizes/font_size = 60
+Label/font_sizes/font_size = 40
 LineEdit/font_sizes/font_size = 40
 LineEdit/styles/normal = SubResource("StyleBoxFlat_v4rd7")

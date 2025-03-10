@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr14hsgu5xxy8"]
+[gd_scene load_steps=4 format=3 uid="uid://cr14hsgu5xxy8"]
 
 [ext_resource type="Theme" uid="uid://b288c5n3b1ipm" path="res://MainUITheme.tres" id="1_6qxxk"]
 [ext_resource type="Script" uid="uid://bo517mucikopt" path="res://Prefabs/ListInputPopup/list_input_popup.gd" id="1_pamad"]
+[ext_resource type="Texture2D" uid="uid://y11i8jn7i7d1" path="res://Textures/cancel.png" id="3_d22kv"]
 
 [node name="ListInputPopup" type="Control"]
 z_index = 20
@@ -72,6 +73,21 @@ custom_minimum_size = Vector2(273, 0)
 layout_mode = 2
 text = "Add To End"
 
+[node name="CloseButton" type="TextureButton" parent="Box"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_d22kv")
+ignore_texture_size = true
+stretch_mode = 4
+
 [connection signal="pressed" from="Box/HBoxContainer/AddToStart" to="." method="_on_add_to_start_pressed"]
 [connection signal="pressed" from="Box/HBoxContainer/AddToMiddle" to="." method="_on_add_to_middle_pressed"]
 [connection signal="pressed" from="Box/HBoxContainer/AddToEnd" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="Box/CloseButton" to="." method="_on_close_button_pressed"]

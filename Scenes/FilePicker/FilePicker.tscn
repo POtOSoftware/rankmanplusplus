@@ -126,11 +126,11 @@ theme_override_font_sizes/normal_font_size = 40
 text = "POtO Software's RankMan++
 Created by Kyle Kailihiwa
 
-Trash can icons created by Freepik - Flaticon
+Ui icons created by riajulislam - Flaticon
 
 Dots icons created by SeyfDesigner - Flaticon
 
-Close icons created by Smashicons - Flaticon"
+Close icons created by Nendra Wahyu  - Flaticon"
 horizontal_alignment = 1
 
 [node name="CloseButton" type="Button" parent="CreditsPopup/Box"]

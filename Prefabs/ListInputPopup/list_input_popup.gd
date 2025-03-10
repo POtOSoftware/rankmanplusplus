@@ -19,3 +19,6 @@ func _on_add_to_middle_pressed() -> void:
 	
 	AppManager.add_to_middle(_new_string)
 	self.queue_free()
+
+func _on_close_button_pressed() -> void:
+	self.queue_free()

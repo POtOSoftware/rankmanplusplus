@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq23bgenrryqx"]
+[gd_scene load_steps=4 format=3 uid="uid://dq23bgenrryqx"]
 
 [ext_resource type="Script" uid="uid://b523j3tnpc7y6" path="res://Prefabs/FileItem/file_item.gd" id="1_f516l"]
+[ext_resource type="Texture2D" uid="uid://c28j8vhvh8i2f" path="res://Textures/trash-can.png" id="2_ce5vh"]
+[ext_resource type="Texture2D" uid="uid://yum5hyf5gs6a" path="res://icon.svg" id="2_iwe6r"]
 
 [node name="FileItem" type="Control" groups=["file_item"]]
 custom_minimum_size = Vector2(1080, 150)
@@ -20,9 +22,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-color = Color(0, 0, 0, 1)
+color = Color(0.152941, 0.152941, 0.25098, 1)
 
-[node name="FileButton" type="Button" parent="."]
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 40
+text = "FILE NAME"
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="FileButton" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,24 +47,9 @@ anchor_bottom = 1.0
 offset_right = -120.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "FILE NAME"
-alignment = 0
+texture_normal = ExtResource("2_iwe6r")
 
-[node name="Label" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_font_sizes/font_size = 48
-text = "FILE NAME"
-vertical_alignment = 1
-text_overrun_behavior = 3
-
-[node name="DeleteButton" type="Button" parent="."]
+[node name="DeleteButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -56,7 +58,9 @@ anchor_bottom = 1.0
 offset_left = -120.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "DELETE"
+texture_normal = ExtResource("2_ce5vh")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="pressed" from="FileButton" to="." method="_on_file_button_pressed"]
 [connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]

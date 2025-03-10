@@ -10,3 +10,6 @@ func initialize_header(_header_label: String) -> void:
 
 func _on_submit_button_pressed() -> void:
 	string_submit.emit(string_edit.text)
+
+func _on_close_button_pressed() -> void:
+	self.queue_free()
