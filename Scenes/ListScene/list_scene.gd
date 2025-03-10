@@ -1,6 +1,7 @@
 extends Control
 
 @onready var list_container = $ScrollContainer/VBoxContainer
+@onready var file_name_label = $WorkingFileName
 
 var test_list: Array = ["item one", "item two", "item three", "item four"]
 var test_two: Array = ["Grace", "Eternal Life", "Last Goodbye", "Mojo Pin", "Forget Her", "So Real", "Lover", "Lilac Wine", "Hallelujah", "Dream Brother", "Corpus Christi Carol"]
@@ -8,8 +9,9 @@ var test_three: Array = ["uh yeah", "woo hoo", "filling out a stinky lil list", 
 
 func _ready() -> void:
 	AppManager.list_container = list_container
-	
 	AppManager.connect(AppManager.new_item_signal, self.refresh_display)
+	
+	file_name_label.text = AppManager.working_file_name
 	refresh_display()
 	#refresh_display(test_list)
 
