@@ -20,7 +20,8 @@ func refresh_display(_input_list: Array) -> void:
 	
 	for item in _input_list:
 		print("CREATING ITEM " + item)
-		AppManager.create_list_item(item)
+		var list_index = _input_list.find(item, 0) + 1
+		AppManager.create_list_item(item, list_index)
 	
 	print("REFRESH COMPLETE")
 
@@ -32,3 +33,4 @@ func _on_test_3_pressed() -> void:
 
 func _on_test_1_pressed() -> void:
 	refresh_display(test_list)
+ 
