@@ -1,7 +1,6 @@
 extends Control
 
 @onready var header_label = $Box/HeaderLabel
-@onready var string_edit = $Box/LineEdit
 
 signal answer(value: bool)
 

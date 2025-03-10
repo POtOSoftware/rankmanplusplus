@@ -32,12 +32,15 @@ func save_main_list_to_file(_file_name: String) -> void:
 	new_file_added.emit()
 
 func load_main_list_from_file(_file_name: String) -> void:
+	var list_file = FileAccess.open(FILE_PATH + _file_name, FileAccess.READ)
 	print("LOADING FILE FROM " + FILE_PATH + _file_name)
 	
-	var list_file = FileAccess.open(FILE_PATH + _file_name, FileAccess.READ)
-	
-	main_list = str_to_var(list_file.get_as_text())
-	new_file_added.emit()
+	if list_file:
+		reset_main_list()
+		main_list = str_to_var(list_file.get_as_text())
+	else:
+		printerr("SOMETHING FUCKY HAPPENED!")
+	#new_file_added.emit()
 
 func delete_list_file(_file_name: String) -> void:
 	print("DELETING " + _file_name)
@@ -97,6 +100,10 @@ func create_string_input(_header_label: String = "PLACEHOLDER") -> String:
 func set_main_list(_new_list: Array) -> void:
 	main_list_backup = main_list
 	main_list = _new_list
+
+func reset_main_list() -> void:
+	main_list_backup = main_list
+	main_list = []
 
 func add_to_start(_input_item: String) -> void:
 	main_list_backup = main_list

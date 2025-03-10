@@ -12,5 +12,5 @@ func _on_delete_button_pressed() -> void:
 
 func _on_file_button_pressed() -> void:
 	AppManager.working_file_name = item_label.text
-	AppManager.load_main_list_from_file(item_label.text)
+	AppManager.load_main_list_from_file(AppManager.working_file_name)
 	get_tree().change_scene_to_file("res://Scenes/ListScene/ListScene.tscn")

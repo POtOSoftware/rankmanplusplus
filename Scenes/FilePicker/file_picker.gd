@@ -5,7 +5,8 @@ extends Control
 
 func _ready() -> void:
 	AppManager.file_list_container = list_container
-	
+	AppManager.working_file_name = ""
+	AppManager.reset_main_list()
 	AppManager.connect(AppManager.new_file_signal, self.display_all_files)
 	
 	if !DirAccess.dir_exists_absolute(AppManager.FILE_PATH):
@@ -37,6 +38,7 @@ func display_all_files() -> void:
 func _on_new_button_pressed() -> void:
 	var new_file_name = await AppManager.create_string_input("New file name:") + ".rank"
 	
+	print(new_file_name)
 	AppManager.working_file_name = new_file_name
 	AppManager.save_main_list_to_file(new_file_name)
 	AppManager.load_main_list_from_file(new_file_name)

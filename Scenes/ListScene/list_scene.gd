@@ -12,6 +12,7 @@ func _ready() -> void:
 	AppManager.connect(AppManager.new_item_signal, self.refresh_display)
 	
 	file_name_label.text = AppManager.working_file_name
+	#AppManager.load_main_list_from_file(AppManager.working_file_name)
 	refresh_display()
 	#refresh_display(test_list)
 
