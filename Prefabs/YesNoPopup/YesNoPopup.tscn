@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://b288c5n3b1ipm" path="res://MainUITheme.tres" id="1_32e60"]
 [ext_resource type="Script" uid="uid://pcybnvlu8upw" path="res://Prefabs/YesNoPopup/yes_no_popup.gd" id="2_kvao1"]
 
-[node name="StringInputPopup" type="Control"]
+[node name="YesNoPopup" type="Control"]
 z_index = 20
 layout_mode = 3
 anchors_preset = 15
