@@ -24,6 +24,7 @@ func create_list_item_input():
 	get_tree().get_root().add_child(ListInputInstance)
 
 func set_main_list(_new_list: Array):
+	main_list_backup = main_list
 	main_list = _new_list
 
 func add_to_start(_input_item: String):

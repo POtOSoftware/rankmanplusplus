@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://drw6ofdyux43w"]
+[gd_scene load_steps=4 format=3 uid="uid://drw6ofdyux43w"]
 
 [ext_resource type="Script" uid="uid://eyepgr14oxms" path="res://Scenes/ListScene/list_scene.gd" id="1_e60dm"]
+[ext_resource type="Theme" uid="uid://b288c5n3b1ipm" path="res://MainUITheme.tres" id="1_m5n2d"]
+[ext_resource type="Script" uid="uid://dcfmk7jj68fsr" path="res://addons/ReorderableContainer/reorderable_vbox.gd" id="3_yl3w1"]
 
 [node name="ListScene" type="Control"]
 layout_mode = 3
@@ -9,27 +11,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_m5n2d")
 script = ExtResource("1_e60dm")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
+clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 64.0
 offset_top = 104.0
-offset_right = -56.0
-offset_bottom = -120.0
+offset_bottom = -288.0
 grow_horizontal = 2
 grow_vertical = 2
+follow_focus = true
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="Container" parent="ScrollContainer" node_paths=PackedStringArray("scroll_container")]
+process_mode = 1
 layout_mode = 2
-theme_override_constants/separation = 10
+script = ExtResource("3_yl3w1")
+is_vertical = true
+scroll_container = NodePath("..")
+metadata/_custom_type_script = "uid://dcfmk7jj68fsr"
 
 [node name="TestLists" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -66,14 +73,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -168.0
-offset_top = -104.0
-offset_right = -8.0
-offset_bottom = -8.0
+offset_left = -184.0
+offset_top = -120.0
+offset_right = -24.0
+offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "ADD"
 
+[connection signal="reordered" from="ScrollContainer/VBoxContainer" to="." method="_on_v_box_container_reordered"]
+[connection signal="sort_children" from="ScrollContainer/VBoxContainer" to="ScrollContainer/VBoxContainer" method="_on_sort_children"]
 [connection signal="pressed" from="TestLists/Test1" to="." method="_on_test_1_pressed"]
 [connection signal="pressed" from="TestLists/Test2" to="." method="_on_test_2_pressed"]
 [connection signal="pressed" from="TestLists/Test3" to="." method="_on_test_3_pressed"]
