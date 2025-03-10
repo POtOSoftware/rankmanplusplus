@@ -4,7 +4,7 @@ extends Control
 
 var list_position: int = 0
 
-func initialize_string(_text: String, _index: int):
+func initialize_string(_text: String, _index: int) -> void:
 	item_label.text = str(_index) + ". " + _text
 	list_position = _index - 1
 	self.custom_minimum_size = Vector2(1080, 150)

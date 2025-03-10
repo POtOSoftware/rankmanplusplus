@@ -10,6 +10,7 @@ func _ready() -> void:
 	AppManager.list_container = list_container
 	
 	AppManager.connect(AppManager.new_item_signal, self.refresh_display)
+	refresh_display()
 	#refresh_display(test_list)
 
 func _exit_tree() -> void:
@@ -55,6 +56,8 @@ func _on_v_box_container_reordered(from: int, to: int) -> void:
 	refresh_display()
 
 func _on_copy_button_pressed() -> void:
+	AppManager.save_main_list_to_file(AppManager.working_file_name)
+	
 	var _copy_string: String = ""
 	var index: int = 1
 	

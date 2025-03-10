@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RankMan++"
-run/main_scene="uid://drw6ofdyux43w"
+run/main_scene="uid://barijsy044p1w"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://wrec6jr764cj"]
+
+[ext_resource type="Theme" uid="uid://b288c5n3b1ipm" path="res://MainUITheme.tres" id="1_f0r46"]
+[ext_resource type="Script" uid="uid://p2dmsuykxpij" path="res://Prefabs/StringInputPopup/string_input_popup.gd" id="2_y15gy"]
+
+[node name="StringInputPopup" type="Control"]
+z_index = 20
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_f0r46")
+script = ExtResource("2_y15gy")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Box" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 200.0
+offset_right = 500.0
+offset_bottom = 608.0
+grow_horizontal = 2
+color = Color(0.0980392, 0.101961, 0.196078, 1)
+
+[node name="HeaderLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 224.0
+offset_right = 1016.0
+offset_bottom = 271.0
+theme_override_font_sizes/font_size = 32
+text = "PLACEHOLDER MESSAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 64.0
+offset_top = 288.0
+offset_right = -64.0
+offset_bottom = 448.0
+grow_horizontal = 2
+placeholder_text = "type in ya text here"
+
+[node name="SubmitButton" type="Button" parent="."]
+custom_minimum_size = Vector2(290, 0)
+layout_mode = 2
+offset_left = 64.0
+offset_top = 464.0
+offset_right = 1016.0
+offset_bottom = 584.0
+text = "Submit"
+
+[connection signal="pressed" from="SubmitButton" to="." method="_on_submit_button_pressed"]
