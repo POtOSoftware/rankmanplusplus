@@ -16,6 +16,14 @@ func _ready() -> void:
 func _exit_tree() -> void:
 	AppManager.list_container = null
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		back_to_file_picker()
+
+func back_to_file_picker() -> void:
+	AppManager.save_main_list_to_file(AppManager.working_file_name)
+	get_tree().change_scene_to_file("res://Scenes/FilePicker/FilePicker.tscn")
+
 func refresh_display(_input_list: Array = AppManager.main_list) -> void:
 	print("REFRESHING LIST WITH LIST " + str(_input_list))
 	get_tree().call_group("list_item", "queue_free")
@@ -25,6 +33,7 @@ func refresh_display(_input_list: Array = AppManager.main_list) -> void:
 		var list_index = _input_list.find(item, 0) + 1
 		AppManager.create_list_item(item, list_index)
 	
+	AppManager.save_main_list_to_file(AppManager.working_file_name)
 	print("REFRESH COMPLETE")
 
 func _on_test_2_pressed() -> void:
@@ -69,3 +78,6 @@ func _on_copy_button_pressed() -> void:
 	
 	print(_copy_string)
 	DisplayServer.clipboard_set(_copy_string)
+
+func _on_back_button_pressed() -> void:
+	back_to_file_picker()

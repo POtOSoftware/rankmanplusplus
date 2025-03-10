@@ -14,6 +14,31 @@ grow_vertical = 2
 theme = ExtResource("1_m5n2d")
 script = ExtResource("1_e60dm")
 
+[node name="WorkingFIleName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 128.0
+offset_right = -200.0
+offset_bottom = 227.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "file.rank"
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 128.0
+offset_right = -17.0
+offset_bottom = 227.0
+grow_horizontal = 0
+text = "Back"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 clip_contents = false
 layout_mode = 1
@@ -99,6 +124,7 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "COPY"
 
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="reordered" from="ScrollContainer/VBoxContainer" to="." method="_on_v_box_container_reordered"]
 [connection signal="sort_children" from="ScrollContainer/VBoxContainer" to="ScrollContainer/VBoxContainer" method="_on_sort_children"]
 [connection signal="pressed" from="TestLists/Test1" to="." method="_on_test_1_pressed"]
