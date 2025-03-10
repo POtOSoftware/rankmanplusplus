@@ -4,6 +4,10 @@ extends Control
 
 signal answer(value: bool)
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		answer.emit(false)
+
 func initialize_header(_header_label: String) -> void:
 	header_label.text = _header_label
 

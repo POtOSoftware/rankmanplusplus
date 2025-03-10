@@ -19,9 +19,9 @@ func _ready() -> void:
 func _exit_tree() -> void:
 	AppManager.list_container = null
 
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
-		back_to_file_picker()
+#func _notification(what: int) -> void:
+#	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+#		back_to_file_picker()
 
 func back_to_file_picker() -> void:
 	AppManager.save_main_list_to_file(AppManager.working_file_name)
