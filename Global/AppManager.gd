@@ -16,7 +16,7 @@ func create_list_item(_text: String, _index: int):
 	var ListItemInstance = pre_ListItem.instantiate()
 	
 	list_container.add_child(ListItemInstance)
-	ListItemInstance.initialize(_text, _index)
+	ListItemInstance.initialize_string(_text, _index)
 
 func create_list_item_input():
 	var ListInputInstance = pre_ListInput.instantiate()

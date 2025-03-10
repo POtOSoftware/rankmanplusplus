@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ReorderableContainer/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="mobile"
