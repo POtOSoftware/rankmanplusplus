@@ -59,6 +59,7 @@ vertical_scroll_mode = 3
 [node name="VBoxContainer" type="Container" parent="ScrollContainer" node_paths=PackedStringArray("scroll_container")]
 process_mode = 1
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_yl3w1")
 is_vertical = true

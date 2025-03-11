@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://c28j8vhvh8i2f" path="res://Textures/trash-can.png" id="2_s7ptg"]
 
 [node name="ListItem" type="Control" groups=["list_item"]]
-custom_minimum_size = Vector2(1080, 150)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 150.0
 grow_horizontal = 2
+size_flags_horizontal = 3
 mouse_filter = 1
 script = ExtResource("1_rrwu2")
 
