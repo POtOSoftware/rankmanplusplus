@@ -15,7 +15,10 @@ config/version="1.1.0"
 run/main_scene="uid://barijsy044p1w"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://gqcwod7hldnh"
 config/icon="uid://clxao40ykpoil"
+boot_splash/minimum_display_time=500
 
 [autoload]
 
