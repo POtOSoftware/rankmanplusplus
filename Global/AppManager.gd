@@ -129,4 +129,11 @@ func remove_index_from_list(_item_to_remove: int) -> void:
 	
 	main_list.remove_at(_item_to_remove)
 	new_item_added.emit()
+
+func update_index_in_list(_index: int, _new_string: String) -> void:
+	main_list_backup = main_list
+	
+	main_list.remove_at(_index)
+	main_list.insert(_index, _new_string)
+	new_item_added.emit()
 #endregion
