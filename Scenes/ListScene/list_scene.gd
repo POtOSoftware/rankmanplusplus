@@ -2,6 +2,7 @@ extends Control
 
 @onready var list_container = $ScrollContainer/VBoxContainer
 @onready var file_name_label = $WorkingFileName
+@onready var first_time_hints = $FirstTimeHints
 
 var test_list: Array = ["item one", "item two", "item three", "item four"]
 var test_two: Array = ["Grace", "Eternal Life", "Last Goodbye", "Mojo Pin", "Forget Her", "So Real", "Lover", "Lilac Wine", "Hallelujah", "Dream Brother", "Corpus Christi Carol"]
@@ -35,6 +36,8 @@ func refresh_display(_input_list: Array = AppManager.main_list) -> void:
 		print("CREATING ITEM " + item)
 		var list_index = _input_list.find(item, 0) + 1
 		AppManager.create_list_item(item, list_index)
+	
+	first_time_hints.visible = !(AppManager.main_list.size() > 0)
 	
 	AppManager.save_main_list_to_file(AppManager.working_file_name)
 	print("REFRESH COMPLETE")

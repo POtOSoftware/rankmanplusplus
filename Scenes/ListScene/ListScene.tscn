@@ -129,6 +129,47 @@ texture_normal = ExtResource("5_ahilf")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="FirstTimeHints" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -480.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="FirstItem" type="Label" parent="FirstTimeHints"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -493.0
+offset_top = -312.0
+offset_right = -12.0
+offset_bottom = -199.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "And create ya items here"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CopyHint" type="Label" parent="FirstTimeHints"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -312.0
+offset_right = 499.0
+offset_bottom = -199.0
+grow_vertical = 0
+text = "Copy ya list here"
+vertical_alignment = 1
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="reordered" from="ScrollContainer/VBoxContainer" to="." method="_on_v_box_container_reordered"]
 [connection signal="sort_children" from="ScrollContainer/VBoxContainer" to="ScrollContainer/VBoxContainer" method="_on_sort_children"]
