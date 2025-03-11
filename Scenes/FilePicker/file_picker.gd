@@ -2,6 +2,7 @@ extends Control
 
 @onready var list_container = $ScrollContainer/VBoxContainer
 @onready var credits_popup = $CreditsPopup
+@onready var first_file_hint = $FirstFileHint
 
 func _ready() -> void:
 	AppManager.file_list_container = list_container
@@ -19,6 +20,8 @@ func _exit_tree() -> void:
 	AppManager.file_list_container = null
 
 func display_all_files() -> void:
+	var found_files: int = 0
+	
 	get_tree().call_group("file_item", "queue_free")
 	
 	var dir = DirAccess.open(AppManager.FILE_PATH)
@@ -31,7 +34,9 @@ func display_all_files() -> void:
 			else:
 				print("Found file: " + file_name)
 				AppManager.create_file_item(file_name)
+				found_files += 1
 			file_name = dir.get_next()
+		first_file_hint.visible = !(found_files > 0)
 	else:
 		printerr("SOMETHING FUCKY HAPPENED!")
 
