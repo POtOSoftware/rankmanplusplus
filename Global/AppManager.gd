@@ -15,7 +15,9 @@ var list_container: Node = null
 var file_list_container: Node = null
 
 var main_list: Array: set = set_main_list
-var main_list_backup: Array
+var main_list_backup: Array[Array]: 
+	set(value): 
+		printerr("why the fuck this changing to " + str(value))
 
 var new_item_signal: String = "new_item_added"
 var new_file_signal: String = "new_file_added"
@@ -98,42 +100,70 @@ func create_string_input(_header_label: String = "PLACEHOLDER") -> String:
 
 #region Main List manipulation
 func set_main_list(_new_list: Array) -> void:
-	main_list_backup = main_list
+	#update_undo_list()
+
 	main_list = _new_list
+	new_item_added.emit()
 
 func reset_main_list() -> void:
-	main_list_backup = main_list
+	#update_undo_list(main_list)
+
 	main_list = []
 
 func add_to_start(_input_item: String) -> void:
-	main_list_backup = main_list
+	update_undo_list()
 	
 	main_list.insert(0, _input_item)
 	new_item_added.emit()
 
 func add_to_middle(_input_item: String) -> void:
-	main_list_backup = main_list
+	update_undo_list()
 	
 	var list_middle: int = main_list.size() / 2
 	main_list.insert(list_middle, _input_item)
 	new_item_added.emit()
 
 func add_to_end(_input_item: String) -> void:
-	main_list_backup = main_list
+	update_undo_list()
 	
 	main_list.append(_input_item)
 	new_item_added.emit()
 
 func remove_index_from_list(_item_to_remove: int) -> void:
-	main_list_backup = main_list
+	update_undo_list()
 	
 	main_list.remove_at(_item_to_remove)
 	new_item_added.emit()
 
 func update_index_in_list(_index: int, _new_string: String) -> void:
-	main_list_backup = main_list
+	update_undo_list()
 	
 	main_list.remove_at(_index)
 	main_list.insert(_index, _new_string)
 	new_item_added.emit()
+#endregion
+
+#region Undoing functions
+func update_undo_list(_list_to_add: Array = main_list) -> void:
+	print("BACKING UP " + str(_list_to_add) + " TO UNDO LIST")
+	main_list_backup.push_back(_list_to_add) # I have officially given up
+	print("UPDATED UNDO LIST: " + str(main_list_backup))
+
+func undo_main_list() -> void:
+	# Grab the last list state from the main list backup
+	var previous_list_state: Array = main_list_backup[-1]
+	
+	print(previous_list_state)
+	
+	# Can't use set_main_list() since that makes a backup too, so we doing this directly nya
+	#main_list = previous_list_state
+	#new_item_added.emit()
+	#print("UNDOING " + str(main_list) + " TO " + str(previous_list_state))
+	
+	#main_list_backup.pop_back()
+
+func clear_undo_list() -> void:
+	# this is only really gonna be needed right at the start after loading in a rank file
+	print("CLEARING UNDO LIST")
+	main_list_backup = []
 #endregion

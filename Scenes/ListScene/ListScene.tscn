@@ -170,6 +170,19 @@ grow_vertical = 0
 text = "Copy ya list here"
 vertical_alignment = 1
 
+[node name="UndoButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -344.0
+offset_top = 152.0
+offset_right = -222.0
+offset_bottom = 207.0
+grow_horizontal = 0
+text = "UNDO"
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="reordered" from="ScrollContainer/VBoxContainer" to="." method="_on_v_box_container_reordered"]
 [connection signal="sort_children" from="ScrollContainer/VBoxContainer" to="ScrollContainer/VBoxContainer" method="_on_sort_children"]
@@ -178,3 +191,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="TestLists/Test3" to="." method="_on_test_3_pressed"]
 [connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]
 [connection signal="pressed" from="CopyButton" to="." method="_on_copy_button_pressed"]
+[connection signal="pressed" from="UndoButton" to="." method="_on_undo_button_pressed"]

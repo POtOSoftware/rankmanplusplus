@@ -15,6 +15,8 @@ func _ready() -> void:
 	file_name_label.text = AppManager.working_file_name
 	#AppManager.load_main_list_from_file(AppManager.working_file_name)
 	refresh_display()
+	AppManager.clear_undo_list()
+
 	#refresh_display(test_list)
 
 func _exit_tree() -> void:
@@ -61,6 +63,7 @@ func _on_v_box_container_reordered(from: int, to: int) -> void:
 	var _main_list_copy: Array = AppManager.main_list
 	var _item_to_move: String = _main_list_copy[from]
 	print("MOVING ITEM " + _item_to_move)
+	AppManager.update_undo_list(_main_list_copy)
 	
 	_main_list_copy.remove_at(from)
 	_main_list_copy.insert(to, _item_to_move)
@@ -68,7 +71,7 @@ func _on_v_box_container_reordered(from: int, to: int) -> void:
 	print(_main_list_copy)
 	
 	AppManager.set_main_list(_main_list_copy)
-	refresh_display()
+	#refresh_display()
 
 func _on_copy_button_pressed() -> void:
 	AppManager.save_main_list_to_file(AppManager.working_file_name)
@@ -87,3 +90,6 @@ func _on_copy_button_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	back_to_file_picker()
+
+func _on_undo_button_pressed() -> void:
+	AppManager.undo_main_list()
