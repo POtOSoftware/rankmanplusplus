@@ -3,15 +3,16 @@ extends Control
 @onready var text_input = $Box/LineEdit
 
 func _ready():
-	connect("focus_entered", self.js_text_entry)
+	#connect("focus_entered", self.js_text_entry)
+	text_input.grab_focus()
 
-func js_text_entry():
-	text_input.text = JavaScriptBridge.eval(
-			"prompt('%s', '%s');" % ["Please enter text:", text_input.text], 
-			true
-			)
-	
-	release_focus()
+#func js_text_entry():
+#	text_input.text = JavaScriptBridge.eval(
+#			"prompt('%s', '%s');" % ["Please enter text:", text_input.text], 
+#			true
+#			)
+#	
+#	release_focus()
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
