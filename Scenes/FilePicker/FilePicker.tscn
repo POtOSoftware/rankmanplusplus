@@ -98,10 +98,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.526
 anchor_right = 0.526
-offset_left = -448.08
+offset_left = -488.08
 offset_top = 352.0
-offset_right = 391.92
-offset_bottom = 1592.0
+offset_right = 431.92
+offset_bottom = 1808.0
 color = Color(0.0980392, 0.101961, 0.196078, 1)
 
 [node name="CreditsTitle" type="Label" parent="CreditsPopup/Box"]
@@ -121,12 +121,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 32.0
 offset_top = 112.0
+offset_right = -32.0
 offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 40
-text = "POtO Software's RankMan++
+text = "RankMan++
 Created by Kyle Kailihiwa
 
 Ui icons created by SeyfDesigner - Flaticon
@@ -134,6 +136,8 @@ Ui icons created by SeyfDesigner - Flaticon
 Dots icons created by SeyfDesigner - Flaticon
 
 Plus sign icons created by SeyfDesigner - Flaticon
+
+Back arrow icons created by SeyfDesigner - Flaticon
 
 Duplicate icons created by SeyfDesigner - Flaticon
 
@@ -150,7 +154,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -348.0
-offset_top = -96.0
+offset_top = -136.0
 offset_right = 347.0
 offset_bottom = -25.0
 grow_horizontal = 2

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://drw6ofdyux43w"]
+[gd_scene load_steps=7 format=3 uid="uid://drw6ofdyux43w"]
 
 [ext_resource type="Script" uid="uid://eyepgr14oxms" path="res://Scenes/ListScene/list_scene.gd" id="1_e60dm"]
 [ext_resource type="Theme" uid="uid://b288c5n3b1ipm" path="res://MainUITheme.tres" id="1_m5n2d"]
 [ext_resource type="Script" uid="uid://dcfmk7jj68fsr" path="res://addons/ReorderableContainer/reorderable_vbox.gd" id="3_yl3w1"]
 [ext_resource type="Texture2D" uid="uid://dw12y4s2nngg5" path="res://Textures/plus.png" id="4_0aq4g"]
+[ext_resource type="Texture2D" uid="uid://csc6i1pt7p638" path="res://Textures/undo.png" id="5_1veet"]
 [ext_resource type="Texture2D" uid="uid://c370psww7obwl" path="res://Textures/copy.png" id="5_ahilf"]
 
 [node name="ListScene" type="Control"]
@@ -115,6 +116,23 @@ texture_normal = ExtResource("4_0aq4g")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="UndoButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -199.0
+offset_right = -232.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("5_1veet")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="CopyButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -139,6 +157,7 @@ offset_top = -480.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="FirstItem" type="Label" parent="FirstTimeHints"]
 layout_mode = 1
@@ -170,17 +189,19 @@ grow_vertical = 0
 text = "Copy ya list here"
 vertical_alignment = 1
 
-[node name="UndoButton" type="Button" parent="."]
+[node name="UndoHint" type="Label" parent="FirstTimeHints"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -344.0
-offset_top = 152.0
-offset_right = -222.0
-offset_bottom = 207.0
-grow_horizontal = 0
-text = "UNDO"
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 672.0
+offset_top = -96.0
+offset_right = 860.0
+offset_bottom = -41.0
+grow_vertical = 0
+text = "And undo"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="reordered" from="ScrollContainer/VBoxContainer" to="." method="_on_v_box_container_reordered"]
@@ -189,5 +210,5 @@ text = "UNDO"
 [connection signal="pressed" from="TestLists/Test2" to="." method="_on_test_2_pressed"]
 [connection signal="pressed" from="TestLists/Test3" to="." method="_on_test_3_pressed"]
 [connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]
-[connection signal="pressed" from="CopyButton" to="." method="_on_copy_button_pressed"]
 [connection signal="pressed" from="UndoButton" to="." method="_on_undo_button_pressed"]
+[connection signal="pressed" from="CopyButton" to="." method="_on_copy_button_pressed"]
