@@ -3,6 +3,7 @@ extends Control
 @onready var list_container = $ScrollContainer/VBoxContainer
 @onready var credits_popup = $CreditsPopup
 @onready var first_file_hint = $FirstFileHint
+@onready var version_string = $CreditsPopup/Box/VersionString
 
 func _ready() -> void:
 	AppManager.file_list_container = list_container
@@ -15,6 +16,8 @@ func _ready() -> void:
 		DirAccess.make_dir_absolute(AppManager.FILE_PATH)
 	
 	display_all_files()
+	
+	version_string.text = ProjectSettings.get_setting("application/config/version")
 
 func _exit_tree() -> void:
 	AppManager.file_list_container = null
