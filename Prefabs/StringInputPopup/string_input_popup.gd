@@ -24,4 +24,5 @@ func _on_submit_button_pressed() -> void:
 	string_submit.emit(string_edit.text)
 
 func _on_close_button_pressed() -> void:
+	AppManager.current_app_state = AppManager.APP_STATES.IDLE
 	self.queue_free()
