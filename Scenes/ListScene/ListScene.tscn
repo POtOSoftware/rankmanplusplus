@@ -171,7 +171,6 @@ text = "Copy ya list here"
 vertical_alignment = 1
 
 [node name="UndoButton" type="Button" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

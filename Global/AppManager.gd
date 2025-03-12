@@ -15,7 +15,7 @@ var list_container: Node = null
 var file_list_container: Node = null
 
 var main_list: Array: set = set_main_list
-var main_list_backup: Array[Array]: 
+var main_list_backup: Array[String]: 
 	set(value): 
 		printerr("why the fuck this changing to " + str(value))
 
@@ -146,21 +146,28 @@ func update_index_in_list(_index: int, _new_string: String) -> void:
 #region Undoing functions
 func update_undo_list(_list_to_add: Array = main_list) -> void:
 	print("BACKING UP " + str(_list_to_add) + " TO UNDO LIST")
-	main_list_backup.push_back(_list_to_add) # I have officially given up
+	# I have to convert the array to a string because that's the only way appending the array would work properly
+	main_list_backup.append(str(_list_to_add))
 	print("UPDATED UNDO LIST: " + str(main_list_backup))
 
 func undo_main_list() -> void:
 	# Grab the last list state from the main list backup
-	var previous_list_state: Array = main_list_backup[-1]
+	var previous_list_state: String
+	if main_list_backup.size() != 0: # check if the backup list isn't empty
+		previous_list_state = main_list_backup[-1] # set it if so
+	else:
+		print("Nothing to undo!")
+		return # exit function if no
 	
 	print(previous_list_state)
 	
 	# Can't use set_main_list() since that makes a backup too, so we doing this directly nya
-	#main_list = previous_list_state
-	#new_item_added.emit()
-	#print("UNDOING " + str(main_list) + " TO " + str(previous_list_state))
+	main_list = str_to_var(previous_list_state) # Convert the string back to array
+	new_item_added.emit()
+	print("UNDOING " + str(main_list) + " TO " + str(previous_list_state))
 	
-	#main_list_backup.pop_back()
+	# Remove the last undo state so we can roll back even further
+	main_list_backup.pop_back()
 
 func clear_undo_list() -> void:
 	# this is only really gonna be needed right at the start after loading in a rank file
