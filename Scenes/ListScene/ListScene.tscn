@@ -17,30 +17,44 @@ grow_vertical = 2
 theme = ExtResource("1_m5n2d")
 script = ExtResource("1_e60dm")
 
-[node name="WorkingFileName" type="Label" parent="."]
+[node name="TopBar" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 24.0
-offset_top = 128.0
-offset_right = -200.0
-offset_bottom = 227.0
+offset_right = -24.0
+offset_bottom = 256.0
 grow_horizontal = 2
+
+[node name="WorkingFileName" type="Label" parent="TopBar"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -41.0
+offset_right = -184.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "file.rank"
 vertical_alignment = 1
 text_overrun_behavior = 3
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="TopBar"]
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 6
 anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-offset_left = -200.0
-offset_top = 128.0
-offset_right = -17.0
-offset_bottom = 227.0
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -72.0
+offset_bottom = 72.0
 grow_horizontal = 0
+grow_vertical = 2
 text = "Back"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -205,7 +219,7 @@ text = "And undo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="TopBar/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="reordered" from="ScrollContainer/VBoxContainer" to="." method="_on_v_box_container_reordered"]
 [connection signal="sort_children" from="ScrollContainer/VBoxContainer" to="ScrollContainer/VBoxContainer" method="_on_sort_children"]
 [connection signal="pressed" from="TestLists/Test1" to="." method="_on_test_1_pressed"]

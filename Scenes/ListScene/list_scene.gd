@@ -1,7 +1,7 @@
 extends Control
 
 @onready var list_container = $ScrollContainer/VBoxContainer
-@onready var file_name_label = $WorkingFileName
+@onready var file_name_label = $TopBar/WorkingFileName
 @onready var first_time_hints = $FirstTimeHints
 
 var test_list: Array = ["item one", "item two", "item three", "item four"]
