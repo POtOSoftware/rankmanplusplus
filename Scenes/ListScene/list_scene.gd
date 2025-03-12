@@ -23,7 +23,7 @@ func _exit_tree() -> void:
 	AppManager.list_container = null
 
 #func _notification(what: int) -> void:
-#	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+#	if what == NOTIFICATION_WM_GO_BACK_REQUEST && AppManager.current_app_state == AppManager.APP_STATES.IDLE:
 #		back_to_file_picker()
 
 func back_to_file_picker() -> void:

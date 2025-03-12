@@ -6,6 +6,7 @@ extends Control
 @onready var version_string = $CreditsPopup/Box/VersionString
 
 func _ready() -> void:
+	#AppManager.current_app_state = "IDLE"
 	AppManager.file_list_container = list_container
 	AppManager.working_file_name = ""
 	AppManager.reset_main_list()

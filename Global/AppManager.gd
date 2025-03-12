@@ -22,10 +22,11 @@ var main_list_backup: Array[String]
 var new_item_signal: String = "new_item_added"
 var new_file_signal: String = "new_file_added"
 
-enum APP_STATES {IDLE, POPUP}
-var current_app_state: APP_STATES = APP_STATES.IDLE:
-	set(value):
-		print("CHANGING APP STATE TO " + str(value))
+#enum APP_STATES {IDLE, POPUP}
+# enums wont work the way they're supposed to so im doing the butt fuckery
+#var current_app_state: String:
+#	set(value):
+#		print("CHANGING APP STATE TO " + value)
 
 #region Save file handling
 const FILE_PATH: String = "user://RankFiles/"
@@ -77,33 +78,30 @@ func create_yes_no_input(_header_label: String = "PLACEHOLDER") -> bool:
 	var YesNoInstance = pre_YesNoInput.instantiate()
 	
 	get_tree().get_root().add_child(YesNoInstance)
-	current_app_state = APP_STATES.POPUP
+	#current_app_state = "POPUP"
 	YesNoInstance.initialize_header(_header_label)
 	
 	var result: bool = await YesNoInstance.answer
 	
 	get_tree().get_root().remove_child(YesNoInstance)
-	current_app_state = APP_STATES.IDLE
 	
 	return result
 
 func create_list_item_input() -> void:
 	var ListInputInstance = pre_ListInput.instantiate()
 	
-	current_app_state = APP_STATES.POPUP
 	get_tree().get_root().add_child(ListInputInstance)
 
 func create_string_input(_header_label: String = "PLACEHOLDER") -> String:
 	var StringInputInstance = pre_StringInput.instantiate()
 	
-	get_tree().get_root().add_child(StringInputInstance)
-	current_app_state = APP_STATES.POPUP
+	get_tree().get_root().addchild(StringInputInstance)
+	#current_app_state = "POPUP"
 	StringInputInstance.initialize_header(_header_label)
 	
 	var result: String = await StringInputInstance.string_submit
 	
 	get_tree().get_root().remove_child(StringInputInstance)
-	current_app_state = APP_STATES.IDLE
 	
 	return result
 #endregion

@@ -6,6 +6,9 @@ signal answer(value: bool)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		#print("should be going back but we aint?")
+		#print(AppManager.current_app_state)
+		#if AppManager.current_app_state == "POPUP":
 		answer.emit(false)
 
 func initialize_header(_header_label: String) -> void:

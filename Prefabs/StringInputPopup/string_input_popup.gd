@@ -5,16 +5,9 @@ extends Control
 
 signal string_submit(value: String)
 
-#func _ready():
-#	connect("focus_entered", self.js_text_entry)
-
-#func js_text_entry():
-#	string_edit.text = JavaScriptBridge.eval(
-#			"prompt('%s', '%s');" % ["Please enter text:", string_edit.text], 
-#			true
-#			)
-#	
-#	release_focus()
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		exit_popup()
 
 func initialize_header(_header_label: String) -> void:
 	header_label.text = _header_label
@@ -24,5 +17,8 @@ func _on_submit_button_pressed() -> void:
 	string_submit.emit(string_edit.text)
 
 func _on_close_button_pressed() -> void:
-	AppManager.current_app_state = AppManager.APP_STATES.IDLE
+	exit_popup()
+
+func exit_popup() -> void:
+	#AppManager.current_app_state = AppManager.APP_STATES.IDLE
 	self.queue_free()
