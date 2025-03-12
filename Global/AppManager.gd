@@ -15,9 +15,7 @@ var list_container: Node = null
 var file_list_container: Node = null
 
 var main_list: Array: set = set_main_list
-var main_list_backup: Array[String]: 
-	set(value): 
-		printerr("why the fuck this changing to " + str(value))
+var main_list_backup: Array[String]
 
 var new_item_signal: String = "new_item_added"
 var new_file_signal: String = "new_file_added"
@@ -159,12 +157,12 @@ func undo_main_list() -> void:
 		print("Nothing to undo!")
 		return # exit function if no
 	
-	print(previous_list_state)
+	#print(previous_list_state)
+	print("UNDOING " + str(main_list) + " TO " + str(previous_list_state))
 	
 	# Can't use set_main_list() since that makes a backup too, so we doing this directly nya
 	main_list = str_to_var(previous_list_state) # Convert the string back to array
 	new_item_added.emit()
-	print("UNDOING " + str(main_list) + " TO " + str(previous_list_state))
 	
 	# Remove the last undo state so we can roll back even further
 	main_list_backup.pop_back()
