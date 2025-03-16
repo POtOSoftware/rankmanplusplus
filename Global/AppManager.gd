@@ -92,12 +92,12 @@ func create_list_item_input() -> void:
 	
 	get_tree().get_root().add_child(ListInputInstance)
 
-func create_string_input(_header_label: String = "PLACEHOLDER") -> String:
+func create_string_input(_header_label: String = "PLACEHOLDER", _default_text: String = "") -> String:
 	var StringInputInstance = pre_StringInput.instantiate()
 	
 	get_tree().get_root().add_child(StringInputInstance)
 	#current_app_state = "POPUP"
-	StringInputInstance.initialize_header(_header_label)
+	StringInputInstance.initialize_header(_header_label, _default_text)
 	
 	var result: String = await StringInputInstance.string_submit
 	

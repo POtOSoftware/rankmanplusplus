@@ -9,8 +9,12 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		exit_popup()
 
-func initialize_header(_header_label: String) -> void:
+func initialize_header(_header_label: String, _default_text: String) -> void:
 	header_label.text = _header_label
+	string_edit.text = _default_text
+	
+	# set the cursor to the end of the string for convenience
+	string_edit.set_caret_column(_default_text.length())
 	string_edit.grab_focus()
 
 func _on_submit_button_pressed() -> void:

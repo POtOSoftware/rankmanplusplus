@@ -13,5 +13,5 @@ func _on_delete_button_pressed() -> void:
 	AppManager.remove_index_from_list(list_position)
 
 func _on_edit_button_pressed() -> void:
-	var _new_label: String = await AppManager.create_string_input("Edit item:")
+	var _new_label: String = await AppManager.create_string_input("Edit item:", item_label.text)
 	AppManager.update_index_in_list(list_position, _new_label)
