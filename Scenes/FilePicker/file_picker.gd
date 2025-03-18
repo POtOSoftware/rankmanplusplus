@@ -59,3 +59,9 @@ func _on_credits_pressed() -> void:
 
 func _on_close_button_pressed() -> void:
 	credits_popup.visible = false
+
+func _on_git_hub_link_pressed() -> void:
+	OS.shell_open("https://github.com/POtOSoftware/rankmanplusplus")
+
+func _on_itch_link_pressed() -> void:
+	OS.shell_open("https://poto-software.itch.io/")
