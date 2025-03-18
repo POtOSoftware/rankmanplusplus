@@ -98,6 +98,7 @@ func _on_undo_button_pressed() -> void:
 
 func _on_file_rename_pressed() -> void:
 	var _old_file_name: String = AppManager.working_file_name
-	var _new_file_name: String = await AppManager.create_string_input("Rename file:", AppManager.working_file_name)
+	# to prevent the user from removing the .rank extension, the input doesn't include it but then adds it after the fact
+	var _new_file_name: String = await AppManager.create_string_input("Rename file:", AppManager.working_file_name.replace(".rank", "")) + ".rank"
 	
 	AppManager.rename_file(_old_file_name, _new_file_name)
