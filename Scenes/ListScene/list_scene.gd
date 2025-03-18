@@ -34,6 +34,8 @@ func refresh_display(_input_list: Array = AppManager.main_list) -> void:
 	print("REFRESHING LIST WITH LIST " + str(_input_list))
 	get_tree().call_group("list_item", "queue_free")
 	
+	file_name_label.text = AppManager.working_file_name
+	
 	for item in _input_list:
 		print("CREATING ITEM " + item)
 		var list_index = _input_list.find(item, 0) + 1
@@ -93,3 +95,9 @@ func _on_back_button_pressed() -> void:
 
 func _on_undo_button_pressed() -> void:
 	AppManager.undo_main_list()
+
+func _on_file_rename_pressed() -> void:
+	var _old_file_name: String = AppManager.working_file_name
+	var _new_file_name: String = await AppManager.create_string_input("Rename file:", AppManager.working_file_name)
+	
+	AppManager.rename_file(_old_file_name, _new_file_name)

@@ -50,6 +50,17 @@ func load_main_list_from_file(_file_name: String) -> void:
 		printerr("SOMETHING FUCKY HAPPENED!")
 	#new_file_added.emit()
 
+func rename_file(_old_name: String, _new_name: String):
+	print("RENAMING " + _old_name + " TO " + _new_name)
+	
+	save_main_list_to_file(_new_name)
+	working_file_name = _new_name
+	
+	delete_list_file(_old_name)
+	# Then emit new item added to refresh the main scene just for visuals
+	# since behind the scenes everything worked, but users complain a lot
+	new_item_added.emit()
+
 func delete_list_file(_file_name: String) -> void:
 	print("DELETING " + _file_name)
 	
