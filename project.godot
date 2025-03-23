@@ -22,13 +22,14 @@ config/icon="uid://clxao40ykpoil"
 [autoload]
 
 AppManager="*res://Global/AppManager.gd"
+AlbumManager="*res://Global/AlbumManager.gd"
 
 [display]
 
 window/size/viewport_width=1080
 window/size/viewport_height=2400
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=720
+window/size/window_height_override=1280
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
@@ -39,6 +40,7 @@ enabled=PackedStringArray("res://addons/ReorderableContainer/plugin.cfg")
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.0980392, 0.101961, 0.196078, 1)
