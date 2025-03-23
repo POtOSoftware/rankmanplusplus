@@ -102,3 +102,6 @@ func _on_file_rename_pressed() -> void:
 	var _new_file_name: String = await AppManager.create_string_input("Rename file:", AppManager.working_file_name.replace(".rank", "")) + ".rank"
 	
 	AppManager.rename_file(_old_file_name, _new_file_name)
+
+func _on_add_note_pressed() -> void:
+	AppManager.create_note_input()

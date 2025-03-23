@@ -11,6 +11,7 @@ var pre_FileItem: PackedScene = preload("res://Prefabs/FileItem/FileItem.tscn")
 var pre_ListInput: PackedScene = preload("res://Prefabs/ListInputPopup/ListInputPopup.tscn")
 var pre_StringInput: PackedScene = preload("res://Prefabs/StringInputPopup/StringInputPopup.tscn")
 var pre_YesNoInput: PackedScene = preload("res://Prefabs/YesNoPopup/YesNoPopup.tscn")
+var pre_NoteInput: PackedScene = preload("res://Prefabs/NoteInput/NoteInput.tscn")
 #endregion
 
 var list_container: Node = null
@@ -115,6 +116,11 @@ func create_string_input(_header_label: String = "PLACEHOLDER", _default_text: S
 	get_tree().get_root().remove_child(StringInputInstance)
 	
 	return result
+
+func create_note_input() -> void:
+	var NoteInputInstance = pre_NoteInput.instantiate()
+	
+	get_tree().get_root().add_child(NoteInputInstance)
 #endregion
 
 #region Main List manipulation

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RankMan++"
-config/version="1.3"
+config/version="2.0"
 run/main_scene="uid://barijsy044p1w"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "Mobile")
@@ -22,7 +22,6 @@ config/icon="uid://clxao40ykpoil"
 [autoload]
 
 AppManager="*res://Global/AppManager.gd"
-AlbumManager="*res://Global/AlbumManager.gd"
 
 [display]
 

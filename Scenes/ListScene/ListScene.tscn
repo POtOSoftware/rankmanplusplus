@@ -145,6 +145,24 @@ texture_normal = ExtResource("4_0aq4g")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="AddNote" type="TextureButton" parent="."]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -352.0
+offset_right = -40.0
+offset_bottom = -192.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("4_0aq4g")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="UndoButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 3
@@ -242,5 +260,6 @@ vertical_alignment = 1
 [connection signal="pressed" from="TestLists/Test2" to="." method="_on_test_2_pressed"]
 [connection signal="pressed" from="TestLists/Test3" to="." method="_on_test_3_pressed"]
 [connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="AddNote" to="." method="_on_add_note_pressed"]
 [connection signal="pressed" from="UndoButton" to="." method="_on_undo_button_pressed"]
 [connection signal="pressed" from="CopyButton" to="." method="_on_copy_button_pressed"]

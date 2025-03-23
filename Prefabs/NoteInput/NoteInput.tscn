@@ -11,12 +11,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_apmxm")
 
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.101961, 0.196078, 1)
+
 [node name="TopBar" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 24.0
-offset_right = -24.0
+offset_left = 25.0
+offset_right = -23.0
 offset_bottom = 256.0
 grow_horizontal = 2
 metadata/_edit_group_ = true
@@ -56,11 +65,24 @@ anchor_bottom = 1.0
 offset_left = 24.0
 offset_top = 200.0
 offset_right = -24.0
-offset_bottom = -200.0
+offset_bottom = -312.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 24
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere pulvinar mauris porta porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac nulla nec lectus euismod molestie a eu mauris. Vivamus eleifend est purus, eleifend pretium lorem fringilla mattis. Donec sollicitudin gravida orci, in pulvinar libero vulputate vitae. Donec ut erat ornare, fringilla felis eget, hendrerit purus. Integer nec eleifend ante, sed dapibus massa. Nulla facilisi. Nam nisi sem, gravida eu dictum nec, semper sit amet dolor. Praesent egestas varius nisl, semper eleifend tortor pellentesque at. Maecenas et tempus lectus, in gravida nisi. Nam vestibulum dui sit amet ornare consequat. Aenean rhoncus, odio vel molestie tempus, nulla neque convallis arcu, ut suscipit nunc risus vel est. Quisque at mollis felis, sed vehicula magna. Nam eget sem ligula. Suspendisse ut semper eros. Integer vitae augue eget felis malesuada sollicitudin et et nibh. Sed eget orci viverra, rhoncus tortor quis, accumsan tortor. Integer luctus diam ut posuere feugiat. Aenean tristique, lacus id varius convallis, lorem dui cursus nunc, sed faucibus neque orci in leo. Aenean fringilla consectetur lorem, sit amet imperdiet velit molestie eu. Curabitur ac efficitur lorem, at molestie libero. Donec sed metus id orci rhoncus maximus. Proin sed pharetra risus. Morbi interdum quam non pulvinar lobortis. Suspendisse tempus nisi id blandit cursus. Duis convallis odio eu blandit sodales. Nulla iaculis purus at sodales tempus. Donec sollicitudin urna a pretium ultricies. Maecenas in enim quis turpis viverra aliquam id non lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin euismod eget leo ut tempor. Praesent enim nisi, sodales et sodales non, auctor at nisl. Integer ut justo nec tellus sagittis sodales. Maecenas id ullamcorper elit. Suspendisse vitae dignissim ante, ut porta nisl. Nunc tincidunt eros ut neque ultricies, at consequat leo dignissim. Donec suscipit sodales lorem, vitae cursus magna ullamcorper non. Maecenas congue dignissim tellus, eleifend dictum nulla. Duis vitae semper ante, ut maximus risus. Nam mollis vehicula pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam sit amet sapien non justo convallis dictum non porttitor nibh. Sed tempor feugiat nulla vitae condimentum. Sed vitae finibus nulla. Donec cursus lacinia ipsum ultricies faucibus. Praesent blandit, ipsum sit amet scelerisque posuere, dui mauris sagittis erat, sed fringilla magna sem nec enim. Nunc molestie vel neque vitae volutpat. Nunc facilisis congue commodo. Cras at luctus odio, vitae cursus erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere pulvinar mauris porta porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac nulla nec lectus euismod molestie a eu mauris. Vivamus eleifend est purus, eleifend pretium lorem fringilla mattis. Donec sollicitudin gravida orci, in pulvinar libero vulputate vitae. Donec ut erat ornare, fringilla felis eget, hendrerit purus. Integer nec eleifend ante, sed dapibus massa. Nulla facilisi. Nam nisi sem, gravida eu dictum nec, semper sit amet dolor. Praesent egestas varius nisl, semper eleifend tortor pellentesque at. Maecenas et tempus lectus, in gravida nisi. Nam vestibulum dui sit amet ornare consequat. Aenean rhoncus, odio vel molestie tempus, nulla neque convallis arcu, ut suscipit nunc risus vel est. Quisque at mollis felis, sed vehicula magna. Nam eget sem ligula. Suspendisse ut semper eros. Integer vitae augue eget felis malesuada sollicitudin et et nibh. Sed eget orci viverra, rhoncus tortor quis, accumsan tortor. Integer luctus diam ut posuere feugiat. Aenean tristique, lacus id varius convallis, lorem dui cursus nunc, sed faucibus neque orci in leo. Aenean fringilla consectetur lorem, sit amet imperdiet velit molestie eu. Curabitur ac efficitur lorem, at molestie libero. Donec sed metus id orci rhoncus maximus. Proin sed pharetra risus. Morbi interdum quam non pulvinar lobortis. Suspendisse tempus nisi id blandit cursus. Duis convallis odio eu blandit sodales. Nulla iaculis purus at sodales tempus. Donec sollicitudin urna a pretium ultricies. Maecenas in enim quis turpis viverra aliquam id non lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin euismod eget leo ut tempor. Praesent enim nisi, sodales et sodales non, auctor at nisl. Integer ut justo nec tellus sagittis sodales. Maecenas id ullamcorper elit. Suspendisse vitae dignissim ante, ut porta nisl. Nunc tincidunt eros ut neque ultricies, at consequat leo dignissim. Donec suscipit sodales lorem, vitae cursus magna ullamcorper non. Maecenas congue dignissim tellus, eleifend dictum nulla. Duis vitae semper ante, ut maximus risus. Nam mollis vehicula pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam sit amet sapien non justo convallis dictum non porttitor nibh. Sed tempor feugiat nulla vitae condimentum. Sed vitae finibus nulla. Donec cursus lacinia ipsum ultricies faucibus. Praesent blandit, ipsum sit amet scelerisque posuere, dui mauris sagittis erat, sed fringilla magna sem nec enim. Nunc molestie vel neque vitae volutpat. Nunc facilisis congue commodo. Cras at luctus odio, vitae cursus erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere pulvinar mauris porta porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac nulla nec lectus euismod molestie a eu mauris. Vivamus eleifend est purus, eleifend pretium lorem fringilla mattis. Donec sollicitudin gravida orci, in pulvinar libero vulputate vitae. Donec ut erat ornare, fringilla felis eget, hendrerit purus. Integer nec eleifend ante, sed dapibus massa. Nulla facilisi. Nam nisi sem, gravida eu dictum nec, semper sit amet dolor. Praesent egestas varius nisl, semper eleifend tortor pellentesque at. Maecenas et tempus lectus, in gravida nisi. Nam vestibulum dui sit amet ornare consequat. Aenean rhoncus, odio vel molestie tempus, nulla neque convallis arcu, ut suscipit nunc risus vel est. Quisque at mollis felis, sed vehicula magna. Nam eget sem ligula. Suspendisse ut semper eros. Integer vitae augue eget felis malesuada sollicitudin et et nibh. Sed eget orci viverra, rhoncus tortor quis, accumsan tortor. Integer luctus diam ut posuere feugiat. Aenean tristique, lacus id varius convallis, lorem dui cursus nunc, sed faucibus neque orci in leo. Aenean fringilla consectetur lorem, sit amet imperdiet velit molestie eu. Curabitur ac efficitur lorem, at molestie libero. Donec sed metus id orci rhoncus maximus. Proin sed pharetra risus. Morbi interdum quam non pulvinar lobortis. Suspendisse tempus nisi id blandit cursus. Duis convallis odio eu blandit sodales. Nulla iaculis purus at sodales tempus. Donec sollicitudin urna a pretium ultricies. Maecenas in enim quis turpis viverra aliquam id non lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin euismod eget leo ut tempor. Praesent enim nisi, sodales et sodales non, auctor at nisl. Integer ut justo nec tellus sagittis sodales. Maecenas id ullamcorper elit. Suspendisse vitae dignissim ante, ut porta nisl. Nunc tincidunt eros ut neque ultricies, at consequat leo dignissim. Donec suscipit sodales lorem, vitae cursus magna ullamcorper non. Maecenas congue dignissim tellus, eleifend dictum nulla. Duis vitae semper ante, ut maximus risus. Nam mollis vehicula pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam sit amet sapien non justo convallis dictum non porttitor nibh. Sed tempor feugiat nulla vitae condimentum. Sed vitae finibus nulla. Donec cursus lacinia ipsum ultricies faucibus. Praesent blandit, ipsum sit amet scelerisque posuere, dui mauris sagittis erat, sed fringilla magna sem nec enim. Nunc molestie vel neque vitae volutpat. Nunc facilisis congue commodo. Cras at luctus odio, vitae cursus erat. "
-placeholder_text = "Type in ya note here"
+theme_override_font_sizes/font_size = 48
+placeholder_text = "type in ya note here"
 wrap_mode = 1
 scroll_smooth = true
+
+[node name="SaveButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -288.0
+offset_right = -24.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SAVE & QUIT"
