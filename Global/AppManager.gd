@@ -20,6 +20,8 @@ var file_list_container: Node = null
 var main_list: Array: set = set_main_list
 var main_list_backup: Array[String]
 
+var note: String = ""
+
 var new_item_signal: String = "new_item_added"
 var new_file_signal: String = "new_file_added"
 
@@ -32,11 +34,14 @@ var new_file_signal: String = "new_file_added"
 #region Save file handling
 const FILE_PATH: String = "user://RankFiles/"
 
+# cant believe i have to rewrite the whole bullshit ass file system because now i decided to save notes to da file
+# twas inevitable but whatever still annoying
 func save_main_list_to_file(_file_name: String) -> void:
 	print("SAVING FILE TO " + FILE_PATH + _file_name)
 	
 	var list_file = FileAccess.open(FILE_PATH + _file_name, FileAccess.WRITE)
 	list_file.store_string(str(main_list))
+	list_file.store_string(note)
 	
 	new_file_added.emit()
 
