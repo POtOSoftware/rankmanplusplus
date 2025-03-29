@@ -87,6 +87,8 @@ func _on_copy_button_pressed() -> void:
 		
 		index += 1
 	
+	_copy_string += AppManager.note
+	
 	print(_copy_string)
 	DisplayServer.clipboard_set(_copy_string)
 
