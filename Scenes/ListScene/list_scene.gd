@@ -12,7 +12,7 @@ func _ready() -> void:
 	AppManager.list_container = list_container
 	AppManager.connect(AppManager.new_item_signal, self.refresh_display)
 	
-	file_name_label.text = AppManager.working_file_name
+	#file_name_label.text = AppManager.working_file_name
 	#AppManager.load_main_list_from_file(AppManager.working_file_name)
 	refresh_display()
 	AppManager.clear_undo_list()
@@ -34,7 +34,7 @@ func refresh_display(_input_list: Array = AppManager.main_list) -> void:
 	print("REFRESHING LIST WITH LIST " + str(_input_list))
 	get_tree().call_group("list_item", "queue_free")
 	
-	file_name_label.text = AppManager.working_file_name
+	file_name_label.text = AppManager.working_file_name.get_basename()
 	
 	for item in _input_list:
 		print("CREATING ITEM " + item)
@@ -101,7 +101,7 @@ func _on_undo_button_pressed() -> void:
 func _on_file_rename_pressed() -> void:
 	var _old_file_name: String = AppManager.working_file_name
 	# to prevent the user from removing the .rank extension, the input doesn't include it but then adds it after the fact
-	var _new_file_name: String = await AppManager.create_string_input("Rename file:", AppManager.working_file_name.replace(".rank", "")) + ".rank"
+	var _new_file_name: String = await AppManager.create_string_input("Rename file:", AppManager.working_file_name.get_basename()) + AppManager.RANK2_EXTENSION
 	
 	AppManager.rename_file(_old_file_name, _new_file_name)
 
