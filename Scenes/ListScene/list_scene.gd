@@ -90,6 +90,8 @@ func _on_copy_button_pressed() -> void:
 	var _copy_string: String = ""
 	var index: int = 1
 	
+	_copy_string += file_name_label.text + "\n"
+	
 	for item in AppManager.main_list:
 		var _rank: String = str(index) + ". "
 		_copy_string += _rank + item + "\n"
