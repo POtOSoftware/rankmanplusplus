@@ -45,7 +45,7 @@ func display_all_files() -> void:
 		printerr("SOMETHING FUCKY HAPPENED!")
 
 func _on_new_button_pressed() -> void:
-	var new_file_name = await AppManager.create_string_input("New file name:") + ".rank"
+	var new_file_name = await AppManager.create_string_input("New file name:") + AppManager.RANK2_EXTENSION
 	
 	print(new_file_name)
 	AppManager.working_file_name = new_file_name

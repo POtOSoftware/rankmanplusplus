@@ -33,6 +33,9 @@ var new_file_signal: String = "new_file_added"
 
 #region Save file handling
 const FILE_PATH: String = "user://RankFiles/"
+const RANK2_EXTENSION: String = ".rank2"
+const RANK_EXTENSION: String = ".rank"
+var file = ConfigFile.new()
 
 # cant believe i have to rewrite the whole bullshit ass file system because now i decided to save notes to da file
 # twas inevitable but whatever still annoying
