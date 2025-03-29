@@ -2,6 +2,9 @@ extends Control
 
 @onready var note_input: Node = $TextEdit
 
+func initialize_note(_note: String = ""):
+	note_input.text = _note
+
 func _on_save_button_pressed() -> void:
 	print(note_input.text)
 	AppManager.note = note_input.text

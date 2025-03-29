@@ -158,6 +158,7 @@ func create_note_input() -> void:
 	var NoteInputInstance = pre_NoteInput.instantiate()
 	
 	get_tree().get_root().add_child(NoteInputInstance)
+	NoteInputInstance.initialize_note(self.note)
 #endregion
 
 #region Main List manipulation
