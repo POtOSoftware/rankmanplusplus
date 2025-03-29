@@ -9,6 +9,7 @@ func _on_save_button_pressed() -> void:
 	print(note_input.text)
 	AppManager.note = note_input.text
 	AppManager.save_rank2_file(AppManager.working_file_name)
+	AppManager.new_item_added.emit()
 	self.queue_free()
 
 func _on_cancel_pressed() -> void:
@@ -16,6 +17,8 @@ func _on_cancel_pressed() -> void:
 	if note_input.text != AppManager.note:
 		# quit note input without saving if user presses yes on da popup
 		if await AppManager.create_yes_no_input("Unsaved changes will be lost! Are you sure?"):
+			AppManager.new_item_added.emit()
 			self.queue_free()
 	else:
+		AppManager.new_item_added.emit()
 		self.queue_free()

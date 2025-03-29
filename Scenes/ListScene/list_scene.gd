@@ -3,10 +3,14 @@ extends Control
 @onready var list_container = $ScrollContainer/VBoxContainer
 @onready var file_name_label = $TopBar/WorkingFileName
 @onready var first_time_hints = $FirstTimeHints
+@onready var add_note_button = $AddNote
 
 var test_list: Array = ["item one", "item two", "item three", "item four"]
 var test_two: Array = ["Grace", "Eternal Life", "Last Goodbye", "Mojo Pin", "Forget Her", "So Real", "Lover", "Lilac Wine", "Hallelujah", "Dream Brother", "Corpus Christi Carol"]
 var test_three: Array = ["uh yeah", "woo hoo", "filling out a stinky lil list", "fuck you", "and fuck me", "and fuck yourself too", "shit head", "really long", "still more to go", "yep", "this is somehow boring", "not really", "AA", "AAA!", "nyaa~", "mrrp", "meoww~ :3", "mrrow", "gotta add more", "and even more", "cause apparently my shit dont work", "the end!"]
+
+var note_add_tex: CompressedTexture2D = preload("res://Textures/note-add.png")
+var note_tex: CompressedTexture2D = preload("res://Textures/note.png")
 
 func _ready() -> void:
 	AppManager.list_container = list_container
@@ -42,6 +46,11 @@ func refresh_display(_input_list: Array = AppManager.main_list) -> void:
 		AppManager.create_list_item(item, list_index)
 	
 	first_time_hints.visible = !(AppManager.main_list.size() > 0)
+	
+	if AppManager.note == "":
+		add_note_button.texture_normal = note_add_tex
+	else:
+		add_note_button.texture_normal = note_tex
 	
 	AppManager.save_main_list_to_file(AppManager.working_file_name)
 	print("REFRESH COMPLETE")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drw6ofdyux43w"]
+[gd_scene load_steps=9 format=3 uid="uid://drw6ofdyux43w"]
 
 [ext_resource type="Script" uid="uid://eyepgr14oxms" path="res://Scenes/ListScene/list_scene.gd" id="1_e60dm"]
 [ext_resource type="Theme" uid="uid://b288c5n3b1ipm" path="res://MainUITheme.tres" id="1_m5n2d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dw12y4s2nngg5" path="res://Textures/plus.png" id="4_0aq4g"]
 [ext_resource type="Texture2D" uid="uid://csc6i1pt7p638" path="res://Textures/undo.png" id="5_1veet"]
 [ext_resource type="Texture2D" uid="uid://c370psww7obwl" path="res://Textures/copy.png" id="5_ahilf"]
+[ext_resource type="Texture2D" uid="uid://dkc74mq21mwge" path="res://Textures/note-add.png" id="6_sbmfm"]
 
 [node name="ListScene" type="Control"]
 layout_mode = 3
@@ -146,7 +147,6 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="AddNote" type="TextureButton" parent="."]
-modulate = Color(0, 1, 0, 1)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -154,12 +154,12 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -200.0
-offset_top = -352.0
+offset_top = -360.0
 offset_right = -40.0
-offset_bottom = -192.0
+offset_bottom = -200.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("4_0aq4g")
+texture_normal = ExtResource("6_sbmfm")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -213,13 +213,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -493.0
-offset_top = -312.0
-offset_right = -12.0
-offset_bottom = -199.0
+offset_left = -520.0
+offset_top = -448.0
+offset_right = -39.0
+offset_bottom = -335.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "And create ya items here"
+text = "And create ya item or note here"
 horizontal_alignment = 1
 vertical_alignment = 1
 
