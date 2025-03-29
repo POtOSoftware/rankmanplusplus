@@ -49,6 +49,7 @@ func save_main_list_to_file(_file_name: String) -> void:
 	#list_file.store_string(note)
 	
 	# i couldnt really be fucked to go through each script and change them all to rank2, so...
+	# enjoy this hot shit of jank! :3c
 	save_rank2_file(_file_name)
 	
 	#new_file_added.emit()
