@@ -114,7 +114,7 @@ anchors_preset = -1
 anchor_left = 0.526
 anchor_right = 0.526
 offset_left = -488.08
-offset_top = 352.0
+offset_top = 256.0
 offset_right = 431.92
 offset_bottom = 1808.0
 color = Color(0.0980392, 0.101961, 0.196078, 1)
@@ -157,6 +157,8 @@ Back arrow icons created by SeyfDesigner - Flaticon
 Duplicate icons created by SeyfDesigner - Flaticon
 
 Close icons created by Nendra Wahyu  - Flaticon
+
+Note icons by Iconsax - SVG Repo
 
 ReorderableContainer plugin by FoolLin"
 horizontal_alignment = 1
