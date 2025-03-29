@@ -12,5 +12,11 @@ func _on_delete_button_pressed() -> void:
 
 func _on_file_button_pressed() -> void:
 	AppManager.working_file_name = item_label.text
-	AppManager.load_main_list_from_file(AppManager.working_file_name)
+	if AppManager.working_file_name.contains(".rank2"):
+		AppManager.load_rank2_file(AppManager.working_file_name)
+	elif AppManager.working_file_name.contains(".rank"):
+		AppManager.load_main_list_from_file(AppManager.working_file_name)
+	else:
+		printerr("INVALID FILE EXTENSION! HOW DID THAT EVEN SHOW UP ANYWAYS?")
+	
 	get_tree().change_scene_to_file("res://Scenes/ListScene/ListScene.tscn")

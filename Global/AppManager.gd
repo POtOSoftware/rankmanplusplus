@@ -35,18 +35,23 @@ var new_file_signal: String = "new_file_added"
 const FILE_PATH: String = "user://RankFiles/"
 const RANK2_EXTENSION: String = ".rank2"
 const RANK_EXTENSION: String = ".rank"
-var file = ConfigFile.new()
+var rank2_file = ConfigFile.new()
 
 # cant believe i have to rewrite the whole bullshit ass file system because now i decided to save notes to da file
 # twas inevitable but whatever still annoying
 func save_main_list_to_file(_file_name: String) -> void:
-	print("SAVING FILE TO " + FILE_PATH + _file_name)
+	printerr("!THIS SHOULDN'T BE USED ANYMORE!")
+	print("SAVING/CONVERTING TO RANK2 ANYWAYS")
+	#print("SAVING FILE TO " + FILE_PATH + _file_name)
 	
-	var list_file = FileAccess.open(FILE_PATH + _file_name, FileAccess.WRITE)
-	list_file.store_string(str(main_list))
-	list_file.store_string(note)
+	#var list_file = FileAccess.open(FILE_PATH + _file_name, FileAccess.WRITE)
+	#list_file.store_string(str(main_list))
+	#list_file.store_string(note)
 	
-	new_file_added.emit()
+	# i couldnt really be fucked to go through each script and change them all to rank2, so...
+	save_rank2_file(_file_name)
+	
+	#new_file_added.emit()
 
 func load_main_list_from_file(_file_name: String) -> void:
 	var list_file = FileAccess.open(FILE_PATH + _file_name, FileAccess.READ)
@@ -58,6 +63,30 @@ func load_main_list_from_file(_file_name: String) -> void:
 	else:
 		printerr("SOMETHING FUCKY HAPPENED!")
 	#new_file_added.emit()
+
+func save_rank2_file(_file_name: String) -> void:
+	print("SAVING RANK2 FILE TO " + FILE_PATH + _file_name)
+	rank2_file.set_value("rank2", "main_list", self.main_list)
+	rank2_file.set_value("rank2", "note", self.note)
+	
+	if rank2_file.save(FILE_PATH + _file_name) == OK:
+		print("SUCCESSFULLY SAVED RANK2 FILE " + FILE_PATH + _file_name)
+	else:
+		printerr("SOMETHING FUCKY HAPPENED!")
+	
+	new_file_added.emit()
+
+func load_rank2_file(_file_name: String) -> void:
+	if rank2_file.load(FILE_PATH + _file_name) == OK:
+		print("LOADING RANK2 FILE FROM " + FILE_PATH + _file_name)
+	else:
+		printerr("COULDN'T LOAD THE FUCKING RANK2 FILE " + FILE_PATH + _file_name)
+		return
+	
+	self.main_list = rank2_file.get_value("rank2", "main_list")
+	self.note = rank2_file.get_value("rank2", "note")
+	
+	print("LOADED RANK2 FILE")
 
 func rename_file(_old_name: String, _new_name: String):
 	print("RENAMING " + _old_name + " TO " + _new_name)

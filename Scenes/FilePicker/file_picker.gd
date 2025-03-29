@@ -49,8 +49,8 @@ func _on_new_button_pressed() -> void:
 	
 	print(new_file_name)
 	AppManager.working_file_name = new_file_name
-	AppManager.save_main_list_to_file(new_file_name)
-	AppManager.load_main_list_from_file(new_file_name)
+	AppManager.save_rank2_file(new_file_name)
+	AppManager.load_rank2_file(new_file_name)
 	
 	get_tree().change_scene_to_file("res://Scenes/ListScene/ListScene.tscn")
 
