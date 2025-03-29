@@ -194,6 +194,17 @@ texture_normal = ExtResource("5_ahilf")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="CopiedLabel" type="Label" parent="CopyButton"]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 56.0
+offset_right = 425.0
+offset_bottom = 111.0
+text = "Copied ya list, stinky"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="FirstTimeHints" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 12
@@ -252,6 +263,9 @@ text = "And undo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="pressed" from="TopBar/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="TopBar/FileRename" to="." method="_on_file_rename_pressed"]
 [connection signal="reordered" from="ScrollContainer/VBoxContainer" to="." method="_on_v_box_container_reordered"]
@@ -263,3 +277,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="AddNote" to="." method="_on_add_note_pressed"]
 [connection signal="pressed" from="UndoButton" to="." method="_on_undo_button_pressed"]
 [connection signal="pressed" from="CopyButton" to="." method="_on_copy_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

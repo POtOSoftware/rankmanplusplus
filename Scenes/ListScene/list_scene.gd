@@ -3,6 +3,8 @@ extends Control
 @onready var list_container = $ScrollContainer/VBoxContainer
 @onready var file_name_label = $TopBar/WorkingFileName
 @onready var first_time_hints = $FirstTimeHints
+@onready var copied_label = $CopyButton/CopiedLabel
+@onready var copied_timer = $Timer
 @onready var add_note_button = $AddNote
 
 var test_list: Array = ["item one", "item two", "item three", "item four"]
@@ -102,6 +104,8 @@ func _on_copy_button_pressed() -> void:
 	
 	print(_copy_string)
 	DisplayServer.clipboard_set(_copy_string)
+	copied_label.visible = true
+	copied_timer.start()
 
 func _on_back_button_pressed() -> void:
 	back_to_file_picker()
@@ -118,3 +122,6 @@ func _on_file_rename_pressed() -> void:
 
 func _on_add_note_pressed() -> void:
 	AppManager.create_note_input()
+
+func _on_timer_timeout() -> void:
+	copied_label.visible = false
