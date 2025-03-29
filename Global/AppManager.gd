@@ -70,6 +70,10 @@ func save_rank2_file(_file_name: String) -> void:
 	rank2_file.set_value("rank2", "main_list", self.main_list)
 	rank2_file.set_value("rank2", "note", self.note)
 	
+	if _file_name.get_extension() == "rank":
+		rename_file(_file_name, _file_name.replace(".rank", ".rank2"))
+		_file_name = _file_name.replace(".rank", ".rank2")
+	
 	if rank2_file.save(FILE_PATH + _file_name) == OK:
 		print("SUCCESSFULLY SAVED RANK2 FILE " + FILE_PATH + _file_name)
 	else:
@@ -92,7 +96,7 @@ func load_rank2_file(_file_name: String) -> void:
 func rename_file(_old_name: String, _new_name: String):
 	print("RENAMING " + _old_name + " TO " + _new_name)
 	
-	save_main_list_to_file(_new_name)
+	save_rank2_file(_new_name)
 	working_file_name = _new_name
 	
 	delete_list_file(_old_name)
@@ -103,7 +107,10 @@ func rename_file(_old_name: String, _new_name: String):
 func delete_list_file(_file_name: String) -> void:
 	print("DELETING " + _file_name)
 	
-	DirAccess.remove_absolute(FILE_PATH + _file_name)
+	if DirAccess.remove_absolute(FILE_PATH + _file_name) == OK:
+		print("SUCESSFULLY DELETED " + _file_name)
+	else:
+		printerr("ERROR DELETING " + _file_name)
 	new_file_added.emit()
 #endregion
 
