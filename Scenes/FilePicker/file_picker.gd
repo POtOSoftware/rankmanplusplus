@@ -25,6 +25,7 @@ func _exit_tree() -> void:
 
 func display_all_files() -> void:
 	var found_files: int = 0
+	var files: Array = []
 	
 	get_tree().call_group("file_item", "queue_free")
 	
@@ -37,21 +38,30 @@ func display_all_files() -> void:
 				print("Found directiory: " + file_name)
 			else:
 				print("Found file: " + file_name)
-				AppManager.create_file_item(file_name)
+				files.append(file_name)
+				#AppManager.create_file_item(file_name)
 				found_files += 1
 			file_name = dir.get_next()
 		first_file_hint.visible = !(found_files > 0)
 	else:
 		printerr("SOMETHING FUCKY HAPPENED!")
+	
+	# long ass line to sort the files by their last modified time
+	files.sort_custom(func(a, b): return FileAccess.get_modified_time(AppManager.FILE_PATH + a) > FileAccess.get_modified_time(AppManager.FILE_PATH + b))
+	
+	for file in files:
+		# then create da files in the newly sorted array nya :3
+		AppManager.create_file_item(file)
 
 func _on_new_button_pressed() -> void:
 	var new_file_name = await AppManager.create_string_input("New file name:") + AppManager.RANK2_EXTENSION
 	
 	print(new_file_name)
-	AppManager.working_file_name = new_file_name
-	AppManager.save_rank2_file(new_file_name)
-	AppManager.load_rank2_file(new_file_name)
+	AppManager.working_file_name = new_file_name # let the app know that this is the file name it's going to be working in and modifying
+	AppManager.save_rank2_file(new_file_name) # create that new file
+	AppManager.load_rank2_file(new_file_name) # then load that file
 	
+	# then switch on over to the list scene
 	get_tree().change_scene_to_file("res://Scenes/ListScene/ListScene.tscn")
 
 func _on_credits_pressed() -> void:
